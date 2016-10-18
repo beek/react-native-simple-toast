@@ -61,12 +61,16 @@ RCT_EXPORT_METHOD(showWithGravity:(NSString *)msg duration:(double)duration grav
         } else {
             position = CSToastPositionBottom;
         }
+        
+        CSToastStyle *style = [[CSToastStyle alloc] initWithDefaultStyle];
+        style.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.55f];
+        
         [view makeToast:msg
             duration:duration
             position:position
             title:nil
             image:nil
-            style:nil
+            style:style
             completion:^(BOOL didTap) {
                 [blockView removeFromSuperview];
             }];
